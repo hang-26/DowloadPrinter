@@ -7,14 +7,15 @@
     tools:context=".SplashScreen">
 
     <ImageView
+        android:id="@+id/imv_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/printerest_logo" />
-    <TextView
-        android:text="DowLoad"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:src="@drawable/logo" />
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp200"
+        android:src="@drawable/dowload"
+        android:layout_width="@dimen/dp100"
+        android:layout_height="@dimen/dp100"/>
 
 </RelativeLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DowloadPrinter</string>
+    <string name="dowload">DowLoad</string>
+    <string name="name_app">PrinterstDownload</string>
 </resources>
