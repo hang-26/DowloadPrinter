@@ -6,17 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <TextView
+        android:id="@+id/tv_printerest"
         android:text="PrintersetDowloader"
         android:textSize="@dimen/dp20"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vw_main"
+        android:layout_below="@id/tv_printerest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </androidx.viewpager.widget.ViewPager>
+    </androidx.viewpager2.widget.ViewPager2>
 
     <LinearLayout
         android:orientation="horizontal"
