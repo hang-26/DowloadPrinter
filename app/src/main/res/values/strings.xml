@@ -2,4 +2,8 @@
     <string name="app_name">DowloadPrinter</string>
     <string name="dowload">DowLoad</string>
     <string name="name_app">PrinterstDownload</string>
+    <string name="how_to_download"><b>How to download?</b> \n1. Open official Pinterest app \n2. View pin you want to download video/gif/photo and click "<b>Send</b>" \n3. Select "<b>Copy Link</b>" \n4. Open app PinterestDownloader and <b>Paste copied link</b> \n5. Click "<b>Download</b>" to save</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

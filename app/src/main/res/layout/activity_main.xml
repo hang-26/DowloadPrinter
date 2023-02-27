@@ -6,33 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <TextView
-        android:id="@+id/tv_name_app"
-        android:text="@string/name_app"
-        android:textSize="@dimen/sp30"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <ImageView
-        android:src="@drawable/ic_p"
-        android:layout_marginStart="@dimen/dp360"
+        android:text="PrintersetDowloader"
+        android:textSize="@dimen/dp20"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <EditText
-        android:layout_margin="@dimen/dp20"
-        android:id="@+id/edt_copy_link"
-        android:layout_below="@+id/tv_name_app"
-        android:hint="Copy link"
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vw_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btn_down"
-        android:layout_below="@id/edt_copy_link"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp20"
-        android:padding="@dimen/dp10"
-        android:text="Dowload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+    </androidx.viewpager.widget.ViewPager>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50">
+        <LinearLayout
+            android:id="@+id/home_tab"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp50">
+            <ImageView
+                android:id="@+id/imv_home"
+                android:src="@drawable/home_ic"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"/>
+            <TextView
+                android:id="@+id/tv_home"
+                android:text="Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/download_tab"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp50">
+            <ImageView
+                android:id="@+id/imv_download"
+                android:src="@drawable/download_icon"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"/>
+            <TextView
+                android:id="@+id/tv_download"
+                android:text="Download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/system_tab"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp50">
+            <ImageView
+                android:id="@+id/imv_system"
+                android:src="@drawable/system_ic"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"/>
+            <TextView
+                android:id="@+id/tv_system"
+                android:text="System"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
