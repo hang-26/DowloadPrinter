@@ -8,6 +8,7 @@
 
     <ImageView
         android:src="@drawable/ic_p"
+        android:id="@+id/imv_p"
         android:layout_marginStart="@dimen/dp360"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
