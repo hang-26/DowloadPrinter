@@ -26,7 +26,10 @@ public class ApiHttpUrl {
 
     public interface ItfApiHttpUrl {
         void onComplete(String realUrl, Throwable throwable);
+    }
 
+    public interface ItfApiBody {
+        void onComplete(String body, Throwable throwable);
     }
 
 
@@ -35,6 +38,9 @@ public class ApiHttpUrl {
 
         @GET
         Observable<Response<ResponseBody>> getUrlReal(@Url String url);
+
+        @GET
+        Observable<Response<ResponseBody>> getUrl(@Url String url);
     }
 
     public static void getRealUrlAffterRender(String url, ItfApiHttpUrl itf) {
@@ -74,4 +80,43 @@ public class ApiHttpUrl {
 
                 }).isDisposed();
     }
+
+    public static void getApi(String url, ItfApiBody itf) {
+        String urlSubHttp = url.replace("//", "..");
+        String baseUrl = url;
+        int idxPathFirst = urlSubHttp.indexOf("/");
+        int idxQusetion = urlSubHttp.indexOf("?");
+        if (idxPathFirst > 0) {
+            baseUrl = url.substring(0, idxPathFirst + 1);
+        }
+        if (idxQusetion > 0 && (idxPathFirst < 0 || idxPathFirst > idxQusetion)) {
+            baseUrl = url.substring(0, idxQusetion + 1);
+        }
+        if (!baseUrl.startsWith("https://") && !baseUrl.startsWith("http://")) {
+            baseUrl = "https://" + baseUrl;
+        }
+
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+        OkHttpClient okHttpClient = builder.build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://www.pinterest.com")
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        retrofit.create(ItfAPIHttp.class).getUrl(url)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(data -> {
+                    itf.onComplete(data.body().string(), null);
+
+                }, throwable -> {
+                    itf.onComplete(null, throwable);
+
+                }).isDisposed();
+    }
+
 }

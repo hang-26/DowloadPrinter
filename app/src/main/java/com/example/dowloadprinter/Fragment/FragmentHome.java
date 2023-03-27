@@ -2,12 +2,6 @@ package com.example.dowloadprinter.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.service.autofill.RegexValidator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,14 +10,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.dowloadprinter.R;
-import com.example.dowloadprinter.retrofit.ApiHttp;
 import com.example.dowloadprinter.retrofit.ApiHttpUrl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import okhttp3.ResponseBody;
 
 
 public class FragmentHome extends Fragment {
@@ -96,12 +91,12 @@ public class FragmentHome extends Fragment {
         });
     }
 
-    private  void urlMedia(String linkMedia){
-        ApiHttp.getApi(linkMedia, null, new ApiHttp.ItfApiHttpDone() {
+    private  void urlMedia(String linkMedia) {
+
+        ApiHttpUrl.getApi(linkMedia, new ApiHttpUrl.ItfApiBody() {
             @Override
-            public void onComplete(ResponseBody data, Throwable throwable) {
-                data.byteStream();
-                throwable.toString();
+            public void onComplete(String body, Throwable throwable) {
+
             }
         });
     }
@@ -112,7 +107,7 @@ public class FragmentHome extends Fragment {
             return null;
         }
         else {
-            return  "https://www.pinterest.com/resource/PinResource/get/?data={\"options\":{\"id\":\"${pinId}\",\"field_set_key\":\"unauth_react_main_pin\"}}";
+            return "https://www.pinterest.com/resource/PinResource/get/?data={\"options\":{\"id\":\"" + pinId + "\",\"field_set_key\":\"unauth_react_main_pin\"}}";
         }
 
     }

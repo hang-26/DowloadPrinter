@@ -1,5 +1,7 @@
 package com.example.dowloadprinter.retrofit;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -76,8 +78,10 @@ public class ApiHttp {
             });
         }
 
-
-        OkHttpClient okHttpClient = builder.build();
+        int HTTP_TIMEOUT = 30;
+        OkHttpClient okHttpClient = builder.connectTimeout(HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(HTTP_TIMEOUT, TimeUnit.SECONDS).build();
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -120,7 +124,9 @@ public class ApiHttp {
         }
 
 
-        OkHttpClient okHttpClient = builder.build();
+        OkHttpClient okHttpClient = builder.connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS).build();
 
         String urlSubHttp = url.replace("//", "..");
 
