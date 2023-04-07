@@ -27,6 +27,13 @@
         android:text="Dowload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <ProgressBar
+        android:id="@+id/prs_down"
+        android:visibility="invisible"
+        android:layout_below="@+id/btn_down"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/tv_intro"
         android:layout_below="@+id/btn_down"
@@ -35,6 +42,16 @@
         android:layout_marginTop="@dimen/dp100"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_homeList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_down"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10" />
 
 
 </RelativeLayout>

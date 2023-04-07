@@ -27,7 +27,6 @@ public class MainPagerAdapter extends FragmentStateAdapter{
 
     public void setListFragment(List<Fragment> listFragment) {
         this.listFragment = listFragment;
-
     }
     @NonNull
     @Override

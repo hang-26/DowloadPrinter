@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/dp20"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imv_homeList"
+        android:src="@drawable/ic_plist"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+    <LinearLayout
+        android:id="@+id/lnr_home"
+        android:layout_width="270dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_toRightOf="@+id/imv_homeList"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_size"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp20" />
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/imv_btndown"
+        android:src="@drawable/ic_download"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_toRightOf="@+id/lnr_home"
+        android:layout_width="20dp"
+        android:layout_height="20dp"/>
+
+
+
+</RelativeLayout>
