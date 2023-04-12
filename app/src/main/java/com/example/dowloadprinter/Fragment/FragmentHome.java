@@ -2,7 +2,6 @@ package com.example.dowloadprinter.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +22,8 @@ import com.example.dowloadprinter.Fragment.molde.MyGift;
 import com.example.dowloadprinter.Fragment.molde.MyMedia;
 import com.example.dowloadprinter.Fragment.molde.MyPhoto;
 import com.example.dowloadprinter.Fragment.molde.MyVideo;
-import com.example.dowloadprinter.MainActivity;
 import com.example.dowloadprinter.R;
 import com.example.dowloadprinter.homelistdown.AdapterHomeList;
-import com.example.dowloadprinter.recycleview.MyModel;
 import com.example.dowloadprinter.retrofit.ApiHttpUrl;
 import com.example.dowloadprinter.util.UtilsJson;
 

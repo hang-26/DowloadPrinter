@@ -1,5 +1,6 @@
 package com.example.dowloadprinter.homelistdown;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.dowloadprinter.Fragment.FragmentHome;
 import com.example.dowloadprinter.Fragment.molde.MyGift;
 import com.example.dowloadprinter.Fragment.molde.MyMedia;
 import com.example.dowloadprinter.Fragment.molde.MyPhoto;
 import com.example.dowloadprinter.Fragment.molde.MyVideo;
 import com.example.dowloadprinter.R;
-import com.example.dowloadprinter.recycleview.AdapterDowloadPrinterest;
-import com.example.dowloadprinter.recycleview.MyModel;
+import com.example.dowloadprinter.util.DownloadUtil;
 
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class AdapterHomeList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
@@ -60,10 +60,40 @@ public class AdapterHomeList extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(viewP.imv_btndown.getContext(),myList.title,Toast.LENGTH_SHORT).show();
+                    downloadMedia(viewP.imv_btndown.getContext(),myList);
                 }
             });
         }
 
+    }
+
+    void downloadMedia(Context context, MyMedia media) {
+
+        String link = media.link;
+        String typeTailFile = "";
+        if (media instanceof MyPhoto) {
+            typeTailFile = "jpg";
+        } else if (media instanceof MyVideo) {
+            typeTailFile = "mp4";
+        } else if (media instanceof MyGift) {
+            typeTailFile = "gif";
+        }
+
+        String nameFIle = "_" + UUID.randomUUID();
+        DownloadUtil.startDownload(context, link, nameFIle, typeTailFile, new DownloadUtil.DownloadUtilCallBackImpl() {
+            @Override
+            public void onDownLoadSuccess() {
+                Toast.makeText(context, "Download success", Toast.LENGTH_SHORT).show();
+                
+            }
+
+            @Override
+            public void onDownLoadError() {
+                // todo notify toast error
+                Toast.makeText(context, "Download error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     @Override

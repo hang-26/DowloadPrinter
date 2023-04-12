@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
     <TextView
         android:id="@+id/tv_printerest"
-        android:text="PrintersetDowloader"
+        android:text=""
         android:textSize="@dimen/dp20"
         android:textStyle="bold"
         android:layout_width="match_parent"

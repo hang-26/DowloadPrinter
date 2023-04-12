@@ -1,7 +1,7 @@
 package com.example.dowloadprinter.Fragment.molde;
 
 enum TypeMedia {
-    VIEDEO, PHOTO, GIFT;
+    VIEDEO, PHOTO, GIFT,STORAGE;
 }
 
 public  abstract class MyMedia {
